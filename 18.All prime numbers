@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+void generatePrimes(int limit) {
+    printf("Prime numbers up to %d are:\n", limit);
+    for (int i = 2; i <= limit; i++) {
+        if (isPrime(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int limit;
+	printf("U.Karthik 192210719\n");
+    printf("Enter the limit: ");
+    scanf("%d", &limit);
+
+    if (limit < 2) {
+        printf("There are no prime numbers less than 2.\n");
+        return 0;
+    }
+
+    generatePrimes(limit);
+
+    return 0;
+}
